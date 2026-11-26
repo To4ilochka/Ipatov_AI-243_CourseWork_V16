@@ -1,0 +1,43 @@
+# Compiled class file & Maven build output
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+
+# Gradle (if ever invoked)
+.gradle/
+build/
+
+# IDEs and editors
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+.settings/
+.classpath
+.project
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+
+# Logs and temporary artifacts
+logs/
+*.log
+tmp/
+temp/
+scratch/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
