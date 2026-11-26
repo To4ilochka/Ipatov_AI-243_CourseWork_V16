@@ -350,7 +350,7 @@ public class DemoDataSeeder implements ApplicationRunner {
                 appOlenaApproved, volOlena,
                 "Проведено двогодинне заняття для 14 відвідувачів бібліотеки: налаштовано масштаб тексту, перевірено двофакторний захист пошти та роздано друковані пам'ятки.",
                 new BigDecimal("4.5"),
-                "Охоплено 14 учасників, роздано 14 друкованих пам'ятток.".replace("пам'ятток", "пам'яток")));
+                "Охоплено 14 учасників, роздано 14 друкованих пам'яток."));
 
         ExecutionReport repMarta = new ExecutionReport(
                 appMartaApproved, volMarta,
