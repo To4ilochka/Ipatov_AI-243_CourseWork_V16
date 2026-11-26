@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${POSTGRES_PORT:5446}/volunthub_test
+    username: ${POSTGRES_USER:volunthub}
+    password: ${POSTGRES_PASSWORD:volunthub_dev_pass}
+  flyway:
+    clean-disabled: false
+
+app:
+  seed:
+    enabled: false
