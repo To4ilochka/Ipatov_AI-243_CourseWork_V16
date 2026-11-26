@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head(${task.title})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: navbar}"></header>
+<main id="main-content" class="container">
+    <p style="margin-top:0;"><a th:href="@{/tasks}">← Повернутися до каталогу завдань</a></p>
+
+    <div th:if="${successMessage}" class="alert alert-success" role="status" th:text="'✓ ' + ${successMessage}"></div>
+    <div th:if="${errorMessage}" class="alert alert-error" role="alert" th:text="'✕ ' + ${errorMessage}"></div>
+
+    <div class="two-col-grid">
+        <article class="card">
+            <div class="meta-row">
+                <span th:if="${acceptingNow}" class="badge badge-open">● Приймає заявки</span>
+                <span th:if="${!acceptingNow}" class="badge badge-danger">■ Прийом заявок закрито (<span th:text="${task.status.labelUk}"></span>)</span>
+                <span class="badge badge-neutral" th:text="${task.category}">Категорія</span>
+                <span class="badge badge-neutral" th:text="${task.workFormat.labelUk}">Формат</span>
+                <span class="badge badge-warn" th:text="${task.urgency.labelUk}">Терміновість</span>
+            </div>
+
+            <h1 style="margin:8px 0 12px; font-size:1.5rem;" th:text="${task.title}">Назва завдання</h1>
+
+            <p style="margin:0 0 12px; color:var(--text-muted);">
+                <strong>Ініціатива:</strong> <span th:text="${task.initiativeTitle}"></span><br>
+                <strong>Координатор ініціативи:</strong> <span th:text="${task.coordinatorName}"></span>
+                <em>(прямі контакти учасників захищені політикою приватності)</em><br>
+                <strong>Місто та текстова адреса / канал:</strong> <span th:text="${task.city} + ' — ' + ${task.locationText}"></span><br>
+                <strong>Кінцевий строк подання заявок:</strong> <span th:text="${#temporals.format(task.deadlineAt, 'dd.MM.yyyy HH:mm')}"></span><br>
+                <strong>Орієнтовна тривалість:</strong> <span th:text="${task.estimatedHours} + ' год'"></span> ·
+                <strong>Місця:</strong> зайнято <strong th:text="${task.approvedCount}">0</strong> із <strong th:text="${task.maxVolunteers}">3</strong>
+                (вільно: <strong th:text="${task.remainingSeats}">3</strong>)
+            </p>
+
+            <h2 style="font-size:1.12rem;">Опис робіт і очікуваний результат</h2>
+            <p th:text="${task.description}"></p>
+
+            <h2 style="font-size:1.12rem;">Вимоги до навичок волонтера</h2>
+            <ul style="padding-left:20px;">
+                <li th:each="rs : ${task.requiredSkills}">
+                    <strong th:text="${rs.title}">Навичка</strong> — мінімальний рівень
+                    <span th:text="${rs.minLevel}">2</span>/3,
+                    вага критерію <span th:text="${rs.weight}">4</span>
+                    <span th:if="${rs.mandatory}" class="badge badge-open" style="margin-left:6px;">Обов'язкова</span>
+                    <span th:if="${!rs.mandatory}" class="badge badge-neutral" style="margin-left:6px;">Бажана</span>
+                </li>
+            </ul>
+        </article>
+
+        <aside>
+            <div th:if="${matchExplanation != null}" class="card score-box">
+                <h2 style="font-size:1.1rem; margin-bottom:6px;">
+                    Пояснення відповідності вашому профілю:
+                    <span th:text="${#numbers.formatDecimal(matchExplanation.totalScore, 1, 1)} + ' / 100'">92.0 / 100</span>
+                </h2>
+                <p style="font-size:0.88rem; margin:6px 0;">
+                    Складові оцінки: навички <strong th:text="${matchExplanation.skillComponentPoints}"></strong> б. ·
+                    локація <strong th:text="${matchExplanation.locationComponentPoints}"></strong> б. ·
+                    терміновість <strong th:text="${matchExplanation.urgencyComponentPoints}"></strong> б.
+                </p>
+                <p style="font-size:0.88rem; margin:6px 0;" th:text="${matchExplanation.summaryText}"></p>
+            </div>
+
+            <div class="card" sec:authorize="hasRole('VOLUNTEER')">
+                <h2 style="font-size:1.15rem;">Подати заявку на виконання</h2>
+                <div th:if="${!acceptingNow}" class="alert alert-error">
+                    ✕ Подання нових заявок заблоковано правилом цілісності: ліміт учасників вичерпано, строк минув або завдання вже завершене.
+                </div>
+                <form th:action="@{/volunteer/applications}" th:object="${applicationForm}" method="post" novalidate>
+                    <input type="hidden" name="taskId" th:value="${task.id}">
+                    <div class="form-group">
+                        <label for="motivation">Мотиваційний коментар і ваш досвід (15–800 символів) *</label>
+                        <textarea id="motivation" rows="4" th:field="*{motivation}"
+                                  placeholder="Опишіть релевантний досвід і зручний час залучення..."></textarea>
+                        <div class="field-error" th:if="${#fields.hasErrors('motivation')}" th:errors="*{motivation}"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%;">Надіслати заявку координатору</button>
+                </form>
+            </div>
+
+            <div class="card" sec:authorize="isAnonymous()">
+                <h2 style="font-size:1.15rem;">Бажаєте долучитися до завдання?</h2>
+                <p style="font-size:0.92rem;">Увійдіть як волонтер або зареєструйте обліковий запис, щоб отримати оцінку відповідності навичок і подати заявку.</p>
+                <a th:href="@{/login}" class="btn btn-primary" style="width:100%;">Увійти для подання заявки</a>
+            </div>
+
+            <div class="card" sec:authorize="hasRole('COORDINATOR')">
+                <h2 style="font-size:1.15rem;">Режим перегляду координатора</h2>
+                <p style="font-size:0.9rem;">Погодження заявок і перевірка звітів доступні у вашій робочій панелі координатора.</p>
+                <a th:href="@{/coordinator/dashboard}" class="btn btn-secondary" style="width:100%;">Перейти до панелі координатора</a>
+            </div>
+        </aside>
+    </div>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

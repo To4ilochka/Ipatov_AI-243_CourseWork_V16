@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="head(pageTitle)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${pageTitle} + ' — VoluntHub'">VoluntHub — Платформа волонтерських ініціатив</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<header th:fragment="navbar" class="site-header">
+    <a href="#main-content" class="skip-link">Перейти до основного вмісту</a>
+    <div class="container header-inner">
+        <a th:href="@{/tasks}" class="brand">
+            <span class="brand-mark" aria-hidden="true">VH</span>
+            <span>VoluntHub · Ініціативи</span>
+        </a>
+        <nav class="nav-links" aria-label="Головна навігація">
+            <a th:href="@{/tasks}">Каталог завдань</a>
+            <a sec:authorize="hasRole('VOLUNTEER')" th:href="@{/volunteer/dashboard}">Кабінет волонтера</a>
+            <a sec:authorize="hasRole('COORDINATOR')" th:href="@{/coordinator/dashboard}">Панель координатора</a>
+            <a th:href="@{/swagger-ui.html}">OpenAPI</a>
+            <span sec:authorize="isAuthenticated()" class="user-pill">
+                <span sec:authentication="name">user</span>
+            </span>
+            <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post" style="display:inline;">
+                <button type="submit" class="btn btn-secondary btn-sm">Вийти</button>
+            </form>
+            <a sec:authorize="isAnonymous()" th:href="@{/login}" class="btn btn-primary btn-sm">Увійти</a>
+            <a sec:authorize="isAnonymous()" th:href="@{/register}" class="btn btn-secondary btn-sm">Реєстрація</a>
+        </nav>
+    </div>
+</header>
+
+<footer th:fragment="footer" class="site-footer">
+    <div class="container">
+        VoluntHub — Навчальна вебсистема координації волонтерських ініціатив (Варіант 16, НУ «Одеська політехніка», 2026). Усі дані синтетичні.
+    </div>
+    <script>
+        document.addEventListener('submit', function (e) {
+            const form = e.target;
+            if (form.dataset.submitting === 'true') {
+                e.preventDefault();
+                return;
+            }
+            form.dataset.submitting = 'true';
+            const btn = form.querySelector('button[type="submit"]');
+            if (btn) {
+                btn.disabled = true;
+            }
+        });
+    </script>
+</footer>
+</body>
+</html>
