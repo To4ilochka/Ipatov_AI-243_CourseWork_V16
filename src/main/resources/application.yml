@@ -1,0 +1,83 @@
+server:
+  port: ${APP_PORT:8096}
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    session:
+      timeout: 2h
+      cookie:
+        name: VOLUNTHUB_SID
+        http-only: true
+        same-site: lax
+  error:
+    include-stacktrace: never
+    include-message: always
+
+spring:
+  application:
+    name: volunteer-platform
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${POSTGRES_PORT:5446}/${POSTGRES_DB:volunthub}
+    username: ${POSTGRES_USER:volunthub}
+    password: ${POSTGRES_PASSWORD:volunthub_dev_pass}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: VoluntHubHikariPool
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 10000
+      transaction-isolation: TRANSACTION_READ_COMMITTED
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+        format_sql: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+  mvc:
+    problemdetails:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: when_authorized
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+app:
+  seed:
+    enabled: ${APP_SEED_ENABLED:true}
+  recommendation:
+    alpha-skill: 0.70
+    beta-location: 0.20
+    gamma-urgency: 0.10
+    missing-mandatory-penalty: 0.35
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [req=%X{requestId:-system}] %logger{36} - %msg%n"
+  level:
+    root: INFO
+    ua.op.edu.ipatov: INFO
