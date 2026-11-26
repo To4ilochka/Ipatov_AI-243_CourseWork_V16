@@ -1,0 +1,98 @@
+{
+  "files_count": 45,
+  "methods_count": 264,
+  "total_physical_lines": 4347,
+  "total_non_empty_lines": 3721,
+  "executable_code_lines": 3558,
+  "comment_lines": 163,
+  "avg_class_loc": 82.51,
+  "max_class_loc": {
+    "class": "WorkflowCoordinationService",
+    "loc": 370
+  },
+  "avg_method_loc": 6.06,
+  "max_method_loc": {
+    "method": "DemoDataSeeder.run",
+    "loc": 276
+  },
+  "max_inheritance_depth": 2,
+  "avg_cyclomatic_complexity": 1.44,
+  "max_cyclomatic_complexity": {
+    "method": "WorkflowCoordinationService.approveApplication",
+    "cc": 10
+  },
+  "comment_ratio_percent": 4.38,
+  "jacoco_line_coverage_percent": 77.16,
+  "jacoco_branch_coverage_percent": 55.12,
+  "jacoco": {
+    "line_covered": 1196,
+    "line_missed": 354,
+    "branch_covered": 183,
+    "branch_missed": 149,
+    "packages": {
+      "ua.op.edu.ipatov.volunteer.dto": {
+        "classes": 16,
+        "line_missed": 0,
+        "line_covered": 16,
+        "branch_missed": 0,
+        "branch_covered": 0
+      },
+      "ua.op.edu.ipatov.volunteer.service": {
+        "classes": 4,
+        "line_missed": 80,
+        "line_covered": 420,
+        "branch_missed": 84,
+        "branch_covered": 120
+      },
+      "ua.op.edu.ipatov.volunteer.security": {
+        "classes": 3,
+        "line_missed": 9,
+        "line_covered": 63,
+        "branch_missed": 0,
+        "branch_covered": 0
+      },
+      "ua.op.edu.ipatov.volunteer.web": {
+        "classes": 10,
+        "line_missed": 154,
+        "line_covered": 231,
+        "branch_missed": 26,
+        "branch_covered": 16
+      },
+      "ua.op.edu.ipatov.volunteer.exception": {
+        "classes": 3,
+        "line_missed": 2,
+        "line_covered": 6,
+        "branch_missed": 0,
+        "branch_covered": 0
+      },
+      "ua.op.edu.ipatov.volunteer": {
+        "classes": 1,
+        "line_missed": 2,
+        "line_covered": 1,
+        "branch_missed": 0,
+        "branch_covered": 0
+      },
+      "ua.op.edu.ipatov.volunteer.config": {
+        "classes": 4,
+        "line_missed": 5,
+        "line_covered": 156,
+        "branch_missed": 10,
+        "branch_covered": 8
+      },
+      "ua.op.edu.ipatov.volunteer.domain": {
+        "classes": 16,
+        "line_missed": 96,
+        "line_covered": 276,
+        "branch_missed": 17,
+        "branch_covered": 23
+      },
+      "ua.op.edu.ipatov.volunteer.repository": {
+        "classes": 1,
+        "line_missed": 6,
+        "line_covered": 27,
+        "branch_missed": 12,
+        "branch_covered": 16
+      }
+    }
+  }
+}
