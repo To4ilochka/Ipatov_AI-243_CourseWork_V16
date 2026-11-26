@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Вхід до системи')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: navbar}"></header>
+<main id="main-content" class="container">
+    <div style="max-width: 520px; margin: 24px auto;">
+        <div class="card">
+            <h1 style="margin-top:0; font-size:1.45rem;">Вхід до платформи VoluntHub</h1>
+            <p style="color:var(--text-muted);">Увійдіть як волонтер або координатор для подання заявок, перегляду персональних рекомендацій чи керування ініціативами.</p>
+
+            <div th:if="${param.error}" class="alert alert-error" role="alert">
+                ✕ Некоректна електронна пошта або пароль. Перевірте облікові дані.
+            </div>
+            <div th:if="${param.logout}" class="alert alert-success" role="status">
+                ✓ Ви успішно завершили сеанс роботи.
+            </div>
+            <div th:if="${successMessage}" class="alert alert-success" role="status" th:text="${successMessage}"></div>
+
+            <form th:action="@{/login}" method="post">
+                <div class="form-group">
+                    <label for="username">Електронна пошта</label>
+                    <input id="username" name="username" type="email" required autocomplete="username"
+                           placeholder="vol.ivanenko@volunthub.op.edu.ua">
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input id="password" name="password" type="password" required autocomplete="current-password"
+                           placeholder="Введіть пароль">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;">Увійти в кабінет</button>
+            </form>
+
+            <hr style="border:0; border-top:1px solid var(--border); margin:18px 0;">
+            <details>
+                <summary style="cursor:pointer; font-weight:600; color:var(--primary);">Навчальні облікові записи для демонстрації</summary>
+                <ul style="font-size:0.86rem; padding-left:18px; margin-top:8px;">
+                    <li><strong>Волонтер (Одеса):</strong> <code>vol.ivanenko@volunthub.op.edu.ua</code></li>
+                    <li><strong>Волонтер (Львів):</strong> <code>vol.melnyk@volunthub.op.edu.ua</code></li>
+                    <li><strong>Волонтер (порожній стан):</strong> <code>vol.newbie@volunthub.op.edu.ua</code></li>
+                    <li><strong>Координатор (Одеса):</strong> <code>coord.odesa@volunthub.op.edu.ua</code></li>
+                    <li><strong>Координатор (Львів):</strong> <code>coord.lviv@volunthub.op.edu.ua</code></li>
+                    <li><strong>Навчальний пароль (NIST ≥15 симв.):</strong> <code>VoluntHub#2026!SafePassword</code></li>
+                </ul>
+            </details>
+        </div>
+    </div>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Панель координатора ініціатив')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: navbar}"></header>
+<main id="main-content" class="container">
+    <section class="hero-banner">
+        <h1 th:text="'Панель координатора: ' + ${coordinator.fullName}">Панель координатора</h1>
+        <p>Керування власними ініціативами й завданнями, погодження заявок з контролем лімітів, перегляд авторизованих контактів учасників та верифікація підсумкових звітів.</p>
+    </section>
+
+    <div th:if="${successMessage}" class="alert alert-success" role="status" th:text="'✓ ' + ${successMessage}"></div>
+    <div th:if="${errorMessage}" class="alert alert-error" role="alert" th:text="'✕ ' + ${errorMessage}"></div>
+
+    <section class="card" aria-labelledby="coord-apps-heading">
+        <h2 id="coord-apps-heading" style="font-size:1.22rem;">Заявки волонтерів на ваші ініціативи (з авторизованим доступом до контактів)</h2>
+        <div th:if="${applications.empty}" class="empty-state">
+            <p>На завдання ваших ініціатив поки немає заявок.</p>
+        </div>
+        <div th:if="${!applications.empty}" class="table-wrap">
+            <table class="data-table">
+                <thead>
+                <tr>
+                    <th>ID / Волонтер</th>
+                    <th>Контакти учасника (політика видимості)</th>
+                    <th>Завдання / Мотивація</th>
+                    <th>Збіг / Статус</th>
+                    <th>Рішення координатора</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="app : ${applications}">
+                    <td>
+                        <strong th:text="'#' + ${app.id} + ' · ' + ${app.volunteerName}">Волонтер</strong>
+                        <div style="font-size:0.8rem; color:var(--text-muted);" th:text="${app.contact.city}">Місто</div>
+                    </td>
+                    <td>
+                        <div th:if="${app.contact.contactsAuthorized}">
+                            <div><strong>Тел.:</strong> <span th:text="${app.contact.phone}"></span></div>
+                            <div><strong>Email:</strong> <span th:text="${app.contact.email}"></span></div>
+                            <div th:if="${app.contact.telegramHandle}"><strong>Telegram:</strong> <span th:text="${app.contact.telegramHandle}"></span></div>
+                        </div>
+                        <div th:if="${!app.contact.contactsAuthorized}" style="color:var(--text-muted); font-size:0.84rem;">
+                            Контакти приховано (заявка неактивна)
+                        </div>
+                    </td>
+                    <td>
+                        <strong th:text="${app.taskTitle}">Завдання</strong>
+                        <p style="font-size:0.84rem; margin:4px 0 0;" th:text="${app.motivation}"></p>
+                    </td>
+                    <td>
+                        <div><strong>Score:</strong> <span th:text="${app.matchScore}"></span></div>
+                        <span class="badge"
+                              th:classappend="${app.status.name() == 'APPROVED' ? 'badge-open' : (app.status.name() == 'PENDING' ? 'badge-warn' : 'badge-danger')}"
+                              th:text="${app.status.labelUk}">Статус</span>
+                    </td>
+                    <td>
+                        <div th:if="${app.status.name() == 'PENDING'}" style="display:flex; flex-direction:column; gap:6px; min-width:210px;">
+                            <form th:action="@{/coordinator/applications/{id}/approve(id=${app.id})}" method="post">
+                                <input type="hidden" name="decisionNote" value="Погоджено та призначено до виконання">
+                                <button type="submit" class="btn btn-primary btn-sm" style="width:100%;">Погодити участь</button>
+                            </form>
+                            <form th:action="@{/coordinator/applications/{id}/reject(id=${app.id})}" method="post" style="display:flex; gap:4px;">
+                                <input type="text" name="decisionNote" required minlength="5" placeholder="Причина відмови..."
+                                       aria-label="Причина відхилення заявки" style="padding:5px 8px; font-size:0.82rem;">
+                                <button type="submit" class="btn btn-danger btn-sm">Відхилити</button>
+                            </form>
+                        </div>
+                        <div th:if="${app.status.name() != 'PENDING'}" style="font-size:0.82rem; color:var(--text-muted);"
+                             th:text="${app.decisionNote != null ? app.decisionNote : 'Опрацьовано'}"></div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="card" aria-labelledby="coord-reports-heading">
+        <h2 id="coord-reports-heading" style="font-size:1.22rem;">Верифікація підсумкових звітів про виконання</h2>
+        <div th:if="${reports.empty}" class="empty-state">
+            <p>Підсумкові звіти від призначених волонтерів поки не надходили.</p>
+        </div>
+        <div th:if="${!reports.empty}" class="table-wrap">
+            <table class="data-table">
+                <thead>
+                <tr>
+                    <th>ID / Автор</th>
+                    <th>Завдання та зміст звіту</th>
+                    <th>Години / Статус</th>
+                    <th>Перевірка координатором</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="rep : ${reports}">
+                    <td>
+                        <strong th:text="'#' + ${rep.id} + ' · ' + ${rep.authorName}"></strong>
+                    </td>
+                    <td>
+                        <strong th:text="${rep.taskTitle}"></strong>
+                        <p style="font-size:0.86rem; margin:4px 0;" th:text="${rep.summary}"></p>
+                        <div th:if="${rep.impactMetrics}" style="font-size:0.8rem; color:var(--text-muted);"
+                             th:text="'Показники: ' + ${rep.impactMetrics}"></div>
+                    </td>
+                    <td>
+                        <div><strong th:text="${rep.hoursSpent} + ' год'"></strong></div>
+                        <span class="badge"
+                              th:classappend="${rep.status.name() == 'VERIFIED' ? 'badge-open' : (rep.status.name() == 'SUBMITTED' ? 'badge-warn' : 'badge-danger')}"
+                              th:text="${rep.status.labelUk}"></span>
+                    </td>
+                    <td>
+                        <form th:if="${rep.status.name() != 'VERIFIED'}"
+                              th:action="@{/coordinator/reports/{id}/review(id=${rep.id})}" method="post"
+                              style="display:flex; flex-direction:column; gap:6px; min-width:220px;">
+                            <input type="text" name="feedback" required minlength="5"
+                                   placeholder="Коментар перевірки..." aria-label="Коментар перевірки звіту"
+                                   style="padding:6px 8px; font-size:0.84rem;">
+                            <div style="display:flex; gap:6px;">
+                                <button type="submit" name="targetStatus" value="VERIFIED" class="btn btn-primary btn-sm" style="flex:1;">Підтвердити</button>
+                                <button type="submit" name="targetStatus" value="NEEDS_REVISION" class="btn btn-secondary btn-sm">На доопрацювання</button>
+                            </div>
+                        </form>
+                        <div th:if="${rep.status.name() == 'VERIFIED'}" style="font-size:0.83rem; color:var(--success);"
+                             th:text="'Підтверджено: ' + ${rep.coordinatorFeedback}"></div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <div class="two-col-grid">
+        <section class="card" aria-labelledby="new-task-heading">
+            <h2 id="new-task-heading" style="font-size:1.18rem;">Опублікувати нове завдання в ініціативі</h2>
+            <form th:action="@{/coordinator/tasks}" th:object="${taskForm}" method="post" novalidate>
+                <div class="form-group">
+                    <label for="initiativeId">Власна ініціатива *</label>
+                    <select id="initiativeId" th:field="*{initiativeId}" required>
+                        <option th:each="ini : ${initiatives}"
+                                th:if="${ini.status.name() != 'COMPLETED' and ini.status.name() != 'ARCHIVED'}"
+                                th:value="${ini.id}"
+                                th:text="${ini.title} + ' (' + ${ini.status.labelUk} + ')'"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="taskTitle">Назва завдання (5–160 символів) *</label>
+                    <input id="taskTitle" type="text" th:field="*{title}" required>
+                    <div class="field-error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+                </div>
+                <div class="form-group">
+                    <label for="taskDesc">Опис робіт (20–2000 символів) *</label>
+                    <textarea id="taskDesc" rows="3" th:field="*{description}" required></textarea>
+                    <div class="field-error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+                </div>
+                <div class="form-group">
+                    <label for="locationText">Текстова адреса або спосіб зв'язку *</label>
+                    <input id="locationText" type="text" th:field="*{locationText}" required placeholder="м. Одеса, навчальний простір або онлайн">
+                    <div class="field-error" th:if="${#fields.hasErrors('locationText')}" th:errors="*{locationText}"></div>
+                </div>
+                <div class="two-col-grid" style="grid-template-columns:1fr 1fr; gap:10px;">
+                    <div class="form-group">
+                        <label for="taskFormat">Формат</label>
+                        <select id="taskFormat" th:field="*{workFormat}">
+                            <option th:each="wf : ${workFormats}" th:value="${wf.name()}" th:text="${wf.labelUk}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskUrgency">Терміновість</label>
+                        <select id="taskUrgency" th:field="*{urgency}">
+                            <option th:each="u : ${urgencies}" th:value="${u.name()}" th:text="${u.labelUk}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="two-col-grid" style="grid-template-columns:1fr 1fr 1fr; gap:10px;">
+                    <div class="form-group">
+                        <label for="maxVolunteers">Ліміт місць *</label>
+                        <input id="maxVolunteers" type="number" min="1" max="500" th:field="*{maxVolunteers}">
+                        <div class="field-error" th:if="${#fields.hasErrors('maxVolunteers')}" th:errors="*{maxVolunteers}"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="estimatedHours">Години *</label>
+                        <input id="estimatedHours" type="number" step="0.5" min="0.5" th:field="*{estimatedHours}">
+                        <div class="field-error" th:if="${#fields.hasErrors('estimatedHours')}" th:errors="*{estimatedHours}"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="deadlineDate">Дедлайн *</label>
+                        <input id="deadlineDate" type="date" th:field="*{deadlineDate}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="primarySkillId">Ключова навичка для рекомендацій</label>
+                    <select id="primarySkillId" th:field="*{primarySkillId}">
+                        <option value="">Без спеціальної навички</option>
+                        <option th:each="sk : ${skills}" th:value="${sk.id}" th:text="${sk.title}"></option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Створити завдання</button>
+            </form>
+        </section>
+
+        <section class="card" aria-labelledby="new-init-heading">
+            <h2 id="new-init-heading" style="font-size:1.18rem;">Створити нову волонтерську ініціативу</h2>
+            <form th:action="@{/coordinator/initiatives}" th:object="${initiativeForm}" method="post" novalidate>
+                <div class="form-group">
+                    <label for="initTitle">Назва ініціативи *</label>
+                    <input id="initTitle" type="text" th:field="*{title}" required>
+                    <div class="field-error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+                </div>
+                <div class="two-col-grid" style="grid-template-columns:1fr 1fr; gap:10px;">
+                    <div class="form-group">
+                        <label for="initCategory">Напрям *</label>
+                        <input id="initCategory" type="text" th:field="*{category}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="initCity">Місто *</label>
+                        <input id="initCity" type="text" th:field="*{locationCity}" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="initSummary">Публічний опис (20–1500 символів) *</label>
+                    <textarea id="initSummary" rows="3" th:field="*{summary}" required></textarea>
+                    <div class="field-error" th:if="${#fields.hasErrors('summary')}" th:errors="*{summary}"></div>
+                </div>
+                <div class="two-col-grid" style="grid-template-columns:1fr 1fr 1fr; gap:10px;">
+                    <div class="form-group">
+                        <label for="initStatus">Статус</label>
+                        <select id="initStatus" th:field="*{status}">
+                            <option th:each="st : ${initiativeStatuses}" th:value="${st.name()}" th:text="${st.labelUk}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="startsOn">Початок</label>
+                        <input id="startsOn" type="date" th:field="*{startsOn}">
+                    </div>
+                    <div class="form-group">
+                        <label for="endsOn">Завершення</label>
+                        <input id="endsOn" type="date" th:field="*{endsOn}">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-secondary">Зберегти ініціативу</button>
+            </form>
+
+            <h3 style="font-size:1rem; margin-top:18px;">Мої поточні ініціативи</h3>
+            <ul style="font-size:0.88rem; padding-left:18px;">
+                <li th:each="ini : ${initiatives}">
+                    <strong th:text="${ini.title}"></strong> —
+                    <span th:text="${ini.locationCity}"></span>
+                    (<span th:text="${ini.status.labelUk}"></span>)
+                </li>
+            </ul>
+        </section>
+    </div>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

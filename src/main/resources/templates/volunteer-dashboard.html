@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Кабінет волонтера')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: navbar}"></header>
+<main id="main-content" class="container">
+    <section class="hero-banner">
+        <h1 th:text="'Кабінет волонтера: ' + ${profile.fullName}">Кабінет волонтера</h1>
+        <p>Місто профілю: <strong th:text="${profile.city}">Одеса</strong> · Захищений контакт для координаторів ваших завдань: <span th:text="${profile.phone}"></span></p>
+    </section>
+
+    <div th:if="${successMessage}" class="alert alert-success" role="status" th:text="'✓ ' + ${successMessage}"></div>
+    <div th:if="${errorMessage}" class="alert alert-error" role="alert" th:text="'✕ ' + ${errorMessage}"></div>
+
+    <div class="two-col-grid">
+        <section class="card" aria-labelledby="rec-heading">
+            <h2 id="rec-heading" style="font-size:1.2rem;">Персональний підбір завдань за навичками (з поясненням рекомендації)</h2>
+            <div th:if="${recommendations.empty}" class="empty-state">
+                <p>Наразі немає нових відкритих завдань, на які ви ще не подали заявку.</p>
+            </div>
+            <div th:each="rec : ${recommendations}" class="score-box">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
+                    <div>
+                        <strong style="font-size:1.02rem;">
+                            <a th:href="@{/tasks/{id}(id=${rec.task.id})}" th:text="${rec.task.title}">Завдання</a>
+                        </strong>
+                        <div style="font-size:0.84rem; color:var(--text-muted);">
+                            <span th:text="${rec.task.initiativeTitle}"></span> ·
+                            <span th:text="${rec.task.city}"></span> ·
+                            <span th:text="${rec.task.workFormat.labelUk}"></span>
+                        </div>
+                    </div>
+                    <span class="badge badge-open"
+                          th:text="${#numbers.formatDecimal(rec.explanation.totalScore, 1, 1)} + ' / 100'">95.0 / 100</span>
+                </div>
+                <p style="font-size:0.86rem; margin:8px 0 6px;" th:text="${rec.explanation.summaryText}"></p>
+                <div style="font-size:0.8rem; color:var(--text-muted); display:flex; justify-content:space-between; align-items:center;">
+                    <span>Бали: навички <strong th:text="${rec.explanation.skillComponentPoints}"></strong> + локація <strong th:text="${rec.explanation.locationComponentPoints}"></strong> + пріоритет <strong th:text="${rec.explanation.urgencyComponentPoints}"></strong></span>
+                    <a th:href="@{/tasks/{id}(id=${rec.task.id})}" class="btn btn-primary btn-sm">Перейти та подати заявку</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" aria-labelledby="skills-heading">
+            <h2 id="skills-heading" style="font-size:1.2rem;">Мої підтверджені навички</h2>
+            <div th:if="${profile.skills.empty}" class="empty-state">
+                <p>Додайте хоча б одну навичку, щоб алгоритм рекомендацій міг точніше ранжувати завдання.</p>
+            </div>
+            <div th:if="${!profile.skills.empty}" class="table-wrap" style="margin-bottom:14px;">
+                <table class="data-table">
+                    <thead>
+                    <tr>
+                        <th>Навичка</th>
+                        <th>Рівень</th>
+                        <th>Дія</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="vs : ${profile.skills}">
+                        <td>
+                            <strong th:text="${vs.skill.title}"></strong>
+                            <div th:if="${vs.notes}" style="font-size:0.8rem; color:var(--text-muted);" th:text="${vs.notes}"></div>
+                        </td>
+                        <td th:text="${vs.proficiencyLevel} + ' / 3'">3 / 3</td>
+                        <td>
+                            <form th:action="@{/volunteer/skills/{id}/delete(id=${vs.skill.id})}" method="post">
+                                <button type="submit" class="btn btn-secondary btn-sm">Видалити</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="font-size:1rem;">Додати або оновити рівень навички</h3>
+            <form th:action="@{/volunteer/skills}" method="post">
+                <div class="form-group">
+                    <label for="skillSelect">Навичка з довідника</label>
+                    <select id="skillSelect" name="skillId" required>
+                        <option th:each="sk : ${allSkills}" th:value="${sk.id}"
+                                th:text="${sk.category} + ' — ' + ${sk.title}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="proficiencyLevel">Рівень володіння</label>
+                    <select id="proficiencyLevel" name="proficiencyLevel">
+                        <option value="1">1 — Базовий (готовий допомагати під наглядом)</option>
+                        <option value="2" selected>2 — Впевнений практичний досвід</option>
+                        <option value="3">3 — Експертний / можу інструктувати</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="skillNotes">Коротке підтвердження досвіду</label>
+                    <input id="skillNotes" name="notes" type="text" maxlength="200" placeholder="Напр., участь у 3 профільних заходах">
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Зберегти навичку</button>
+            </form>
+        </section>
+    </div>
+
+    <section class="card" aria-labelledby="apps-heading">
+        <h2 id="apps-heading" style="font-size:1.2rem;">Мої заявки на участь у завданнях</h2>
+        <div th:if="${applications.empty}" class="empty-state" role="status">
+            <h3 style="margin-top:0; font-size:1.05rem;">Ви ще не подали жодної заявки</h3>
+            <p>Оберіть завдання з персональних рекомендацій вище або відкрийте загальний каталог ініціатив.</p>
+            <a th:href="@{/tasks}" class="btn btn-primary btn-sm">Відкрити каталог завдань</a>
+        </div>
+        <div th:if="${!applications.empty}" class="table-wrap">
+            <table class="data-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Завдання та ініціатива</th>
+                    <th>Індекс збігу</th>
+                    <th>Статус і коментар координатора</th>
+                    <th>Дії</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="app : ${applications}">
+                    <td th:text="'#' + ${app.id}">#1</td>
+                    <td>
+                        <a th:href="@{/tasks/{id}(id=${app.taskId})}" th:text="${app.taskTitle}"></a>
+                        <div style="font-size:0.82rem; color:var(--text-muted);" th:text="${app.initiativeTitle}"></div>
+                    </td>
+                    <td th:text="${app.matchScore} + ' / 100'">94.00</td>
+                    <td>
+                        <span class="badge"
+                              th:classappend="${app.status.name() == 'APPROVED' ? 'badge-open' : (app.status.name() == 'PENDING' ? 'badge-warn' : 'badge-danger')}"
+                              th:text="${app.status.labelUk}">Статус</span>
+                        <div th:if="${app.decisionNote}" style="font-size:0.82rem; margin-top:4px;"
+                             th:text="'Рішення: ' + ${app.decisionNote}"></div>
+                    </td>
+                    <td>
+                        <form th:if="${app.status.name() == 'PENDING' or app.status.name() == 'APPROVED'}"
+                              th:action="@{/volunteer/applications/{id}/cancel(id=${app.id})}" method="post">
+                            <button type="submit" class="btn btn-secondary btn-sm">Скасувати</button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <div class="two-col-grid">
+        <section class="card" aria-labelledby="report-form-heading">
+            <h2 id="report-form-heading" style="font-size:1.2rem;">Подати або оновити підсумковий звіт</h2>
+            <p style="font-size:0.88rem; color:var(--text-muted);">Звітування доступне виключно для ваших погоджених заявок (<code>APPROVED</code>).</p>
+            <form th:action="@{/volunteer/reports}" th:object="${reportForm}" method="post" novalidate>
+                <div class="form-group">
+                    <label for="applicationId">Погоджена заявка *</label>
+                    <select id="applicationId" th:field="*{applicationId}" required>
+                        <option value="">-- Оберіть призначене завдання --</option>
+                        <option th:each="app : ${applications}"
+                                th:if="${app.status.name() == 'APPROVED'}"
+                                th:value="${app.id}"
+                                th:text="'Заявка #' + ${app.id} + ' — ' + ${app.taskTitle}"></option>
+                    </select>
+                    <div class="field-error" th:if="${#fields.hasErrors('applicationId')}" th:errors="*{applicationId}"></div>
+                </div>
+                <div class="form-group">
+                    <label for="hoursSpent">Фактично витрачено годин (0.5 – 200) *</label>
+                    <input id="hoursSpent" type="number" step="0.5" min="0.5" max="200" th:field="*{hoursSpent}" required>
+                    <div class="field-error" th:if="${#fields.hasErrors('hoursSpent')}" th:errors="*{hoursSpent}"></div>
+                </div>
+                <div class="form-group">
+                    <label for="summary">Зміст виконаної роботи (20–2000 символів) *</label>
+                    <textarea id="summary" rows="4" th:field="*{summary}"
+                              placeholder="Опишіть виконані дії та підсумок для громади чи ініціативи..."></textarea>
+                    <div class="field-error" th:if="${#fields.hasErrors('summary')}" th:errors="*{summary}"></div>
+                </div>
+                <div class="form-group">
+                    <label for="impactMetrics">Кількісні показники результату (необов'язково)</label>
+                    <input id="impactMetrics" type="text" th:field="*{impactMetrics}"
+                           placeholder="Напр.: перевірено 12 сторінок, роздано 20 пам'яток">
+                    <div class="field-error" th:if="${#fields.hasErrors('impactMetrics')}" th:errors="*{impactMetrics}"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Надіслати підсумковий звіт</button>
+            </button>
+            </form>
+        </section>
+
+        <section class="card" aria-labelledby="my-reports-heading">
+            <h2 id="my-reports-heading" style="font-size:1.2rem;">Історія моїх звітів про виконання</h2>
+            <div th:if="${reports.empty}" class="empty-state">
+                <p>Звіти про виконання ще не подавалися.</p>
+            </div>
+            <div th:each="rep : ${reports}" style="border-bottom:1px solid var(--border); padding:10px 0;">
+                <div style="display:flex; justify-content:space-between; gap:8px;">
+                    <strong th:text="${rep.taskTitle}">Завдання</strong>
+                    <span class="badge"
+                          th:classappend="${rep.status.name() == 'VERIFIED' ? 'badge-open' : (rep.status.name() == 'SUBMITTED' ? 'badge-warn' : 'badge-danger')}"
+                          th:text="${rep.status.labelUk}">Статус</span>
+                </div>
+                <p style="font-size:0.88rem; margin:6px 0;" th:text="${rep.summary}"></p>
+                <div style="font-size:0.82rem; color:var(--text-muted);">
+                    Годин: <strong th:text="${rep.hoursSpent}"></strong>
+                    <span th:if="${rep.impactMetrics}" th:text="' · Показники: ' + ${rep.impactMetrics}"></span>
+                </div>
+                <div th:if="${rep.coordinatorFeedback}" style="font-size:0.83rem; margin-top:4px; color:var(--primary-dark);"
+                     th:text="'Відгук координатора: ' + ${rep.coordinatorFeedback}"></div>
+            </div>
+        </section>
+    </div>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

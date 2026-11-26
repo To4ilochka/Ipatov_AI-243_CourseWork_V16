@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Каталог волонтерських завдань')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: navbar}"></header>
+<main id="main-content" class="container">
+    <section class="hero-banner">
+        <h1>Платформа волонтерських ініціатив VoluntHub</h1>
+        <p>Обирайте завдання за навичками, містом і форматом участі, подавайте заявки з прозорим контролем місць та звітуйте про досягнуті результати.</p>
+    </section>
+
+    <section class="card" aria-labelledby="filter-heading">
+        <h2 id="filter-heading" style="font-size:1.15rem; margin-bottom:12px;">Пошук і фільтрація завдань</h2>
+        <form th:action="@{/tasks}" method="get" class="filter-grid">
+            <div>
+                <label for="query">Ключові слова</label>
+                <input id="query" name="query" type="text" th:value="${query}" placeholder="WCAG, сквер, переклад...">
+            </div>
+            <div>
+                <label for="city">Місто</label>
+                <input id="city" name="city" type="text" th:value="${city}" placeholder="Одеса, Львів...">
+            </div>
+            <div>
+                <label for="workFormat">Формат участі</label>
+                <select id="workFormat" name="workFormat">
+                    <option value="">Усі формати</option>
+                    <option th:each="wf : ${workFormats}"
+                            th:value="${wf.name()}"
+                            th:selected="${selectedFormat == wf}"
+                            th:text="${wf.labelUk}"></option>
+                </select>
+            </div>
+            <div>
+                <label for="urgency">Пріоритет</label>
+                <select id="urgency" name="urgency">
+                    <option value="">Усі рівні</option>
+                    <option th:each="urg : ${urgencies}"
+                            th:value="${urg.name()}"
+                            th:selected="${selectedUrgency == urg}"
+                            th:text="${urg.labelUk}"></option>
+                </select>
+            </div>
+            <div>
+                <label for="skillId">Потрібна навичка</label>
+                <select id="skillId" name="skillId">
+                    <option value="">Будь-яка навичка</option>
+                    <option th:each="sk : ${skills}"
+                            th:value="${sk.id}"
+                            th:selected="${selectedSkillId != null and selectedSkillId == sk.id}"
+                            th:text="${sk.title}"></option>
+                </select>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+                <label style="display:flex; align-items:center; gap:6px; font-weight:500; cursor:pointer; margin:0;">
+                    <input type="checkbox" name="onlyOpen" value="true" th:checked="${onlyOpen}">
+                    <span>Лише відкриті з вільними місцями</span>
+                </label>
+                <div style="display:flex; gap:8px;">
+                    <button type="submit" class="btn btn-primary btn-sm" style="flex:1;">Знайти</button>
+                    <a th:href="@{/tasks}" class="btn btn-secondary btn-sm">Скинути</a>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <p style="margin:0; font-weight:600;">
+            Знайдено завдань: <span th:text="${tasksPage.totalElements}">0</span>
+            <span th:if="${tasksPage.totalPages > 1}" th:text="' (сторінка ' + (${tasksPage.number} + 1) + ' із ' + ${tasksPage.totalPages} + ')'"></span>
+        </p>
+        <a sec:authorize="hasRole('VOLUNTEER')" th:href="@{/volunteer/dashboard}" class="btn btn-secondary btn-sm">
+            ★ Персональні рекомендації за навичками
+        </a>
+    </div>
+
+    <div th:if="${tasksPage.empty}" class="empty-state" role="status">
+        <h2 style="font-size:1.2rem; margin-top:0;">За вибраними критеріями завдань не знайдено</h2>
+        <p>Спробуйте змінити ключове слово, зняти фільтр міста або переглянути всі активні ініціативи.</p>
+        <a th:href="@{/tasks}" class="btn btn-primary btn-sm">Показати всі завдання</a>
+    </div>
+
+    <section th:if="${!tasksPage.empty}" class="cards-grid" aria-label="Перелік завдань">
+        <article th:each="t : ${tasksPage.content}" class="task-card">
+            <div>
+                <div class="meta-row">
+                    <span th:if="${t.status.name() == 'OPEN' and t.remainingSeats > 0}" class="badge badge-open">
+                        ● Відкрито · вільно <span th:text="${t.remainingSeats}">1</span>/<span th:text="${t.maxVolunteers}">3</span>
+                    </span>
+                    <span th:if="${t.status.name() != 'OPEN' or t.remainingSeats == 0}" class="badge badge-danger">
+                        ■ <span th:text="${t.remainingSeats == 0 and t.status.name() != 'COMPLETED' ? 'Місця заповнено' : t.status.labelUk}">Статус</span>
+                    </span>
+                    <span th:classappend="${t.urgency.name() == 'CRITICAL' ? 'badge-danger' : (t.urgency.name() == 'HIGH' ? 'badge-warn' : 'badge-neutral')}"
+                          class="badge" th:text="${t.urgency.labelUk}">Планове</span>
+                    <span class="badge badge-neutral" th:text="${t.workFormat.labelUk}">Формат</span>
+                </div>
+
+                <h3>
+                    <a th:href="@{/tasks/{id}(id=${t.id})}" th:text="${t.title}">Назва завдання</a>
+                </h3>
+                <p style="font-size:0.86rem; color:var(--text-muted); margin:4px 0 8px;">
+                    <strong>Ініціатива:</strong> <span th:text="${t.initiativeTitle}"></span> ·
+                    <strong>Місто:</strong> <span th:text="${t.city}"></span>
+                </p>
+                <p style="font-size:0.9rem; margin:0 0 10px;"
+                   th:text="${#strings.abbreviate(t.description, 150)}"></p>
+
+                <div class="skill-tags" aria-label="Потрібні навички">
+                    <span th:each="rs : ${t.requiredSkills}"
+                          class="skill-tag"
+                          th:classappend="${rs.mandatory ? 'mandatory' : ''}"
+                          th:text="${rs.title} + ' (рівень ≥' + ${rs.minLevel} + (${rs.mandatory ? ', обов.' : ''}) + ')'"></span>
+                </div>
+            </div>
+
+            <div style="border-top:1px solid var(--border); padding-top:10px; margin-top:8px; display:flex; justify-content:space-between; align-items:center; font-size:0.84rem;">
+                <span>Обсяг: <strong th:text="${t.estimatedHours} + ' год'">4 год</strong> · до <span th:text="${#temporals.format(t.deadlineAt, 'dd.MM.yyyy')}"></span></span>
+                <a th:href="@{/tasks/{id}(id=${t.id})}" class="btn btn-primary btn-sm">Детальніше</a>
+            </div>
+        </article>
+    </section>
+
+    <nav th:if="${tasksPage.totalPages > 1}" class="pagination" aria-label="Сторінки каталогу">
+        <a th:each="p : ${#numbers.sequence(0, tasksPage.totalPages - 1)}"
+           th:href="@{/tasks(page=${p}, query=${query}, city=${city}, workFormat=${selectedFormat}, urgency=${selectedUrgency}, skillId=${selectedSkillId}, onlyOpen=${onlyOpen})}"
+           th:text="${p + 1}"
+           th:classappend="${p == tasksPage.number ? 'btn-primary' : 'btn-secondary'}"
+           class="btn btn-sm">1</a>
+    </nav>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

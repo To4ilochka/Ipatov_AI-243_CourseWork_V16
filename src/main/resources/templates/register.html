@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Реєстрація волонтера')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: navbar}"></header>
+<main id="main-content" class="container">
+    <div style="max-width: 620px; margin: 16px auto;">
+        <div class="card">
+            <h1 style="margin-top:0; font-size:1.45rem;">Реєстрація нового волонтера</h1>
+            <p style="color:var(--text-muted);">Контактний телефон і Telegram відображатимуться лише координаторам тих завдань, на які ви подасте заявку.</p>
+
+            <div th:if="${errorMessage}" class="alert alert-error" role="alert" th:text="'✕ ' + ${errorMessage}"></div>
+
+            <form th:action="@{/register}" th:object="${registerForm}" method="post" novalidate>
+                <div class="form-group">
+                    <label for="fullName">Прізвище, ім'я та по батькові *</label>
+                    <input id="fullName" type="text" th:field="*{fullName}" required>
+                    <div class="field-error" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Електронна пошта *</label>
+                    <input id="email" type="email" th:field="*{email}" required>
+                    <div class="field-error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль (від 15 до 128 символів за NIST SP 800-63B-4) *</label>
+                    <input id="password" type="password" th:field="*{password}" required>
+                    <div class="field-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                </div>
+                <div class="two-col-grid" style="grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div class="form-group">
+                        <label for="city">Місто проживання *</label>
+                        <input id="city" type="text" th:field="*{city}" required>
+                        <div class="field-error" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Контактний телефон *</label>
+                        <input id="phone" type="text" th:field="*{phone}" required placeholder="+380951234567">
+                        <div class="field-error" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="telegramHandle">Нік у Telegram (необов'язково)</label>
+                    <input id="telegramHandle" type="text" th:field="*{telegramHandle}" placeholder="@volunteer_ua">
+                </div>
+                <div class="form-group">
+                    <label for="bio">Коротко про досвід (необов'язково)</label>
+                    <textarea id="bio" rows="3" th:field="*{bio}"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Зареєструвати профіль волонтера</button>
+            </form>
+        </div>
+    </div>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

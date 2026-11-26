@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Обмеження доступу (403)')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: navbar}"></header>
+<main id="main-content" class="container">
+    <div class="card" style="max-width:660px; margin:32px auto; border-left: 6px solid var(--danger);">
+        <span class="badge badge-danger">HTTP 403 / Політика безпеки</span>
+        <h1 style="margin:10px 0; font-size:1.5rem;">Доступ до запитаної дії або запису обмежено</h1>
+        <p th:text="${reason != null ? reason : 'Перевірка повноважень на сервері відхилила запит.'}"></p>
+        <p style="color:var(--text-muted); font-size:0.92rem;">
+            У платформі VoluntHub розмежування прав виконується на довіреній серверній частині: волонтери не мають доступу до панелі координатора чи чужих звітів, а закриті контактні дані доступні лише відповідальному координатору ініціативи.
+        </p>
+        <div style="display:flex; gap:10px; margin-top:16px;">
+            <a th:href="@{/tasks}" class="btn btn-primary">Повернутися до каталогу</a>
+            <a th:href="@{/dashboard}" class="btn btn-secondary">Мій кабінет</a>
+        </div>
+    </div>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>
