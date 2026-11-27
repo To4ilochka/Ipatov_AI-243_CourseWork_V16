@@ -63,7 +63,7 @@ class MvcAndSeederIntegrationTest {
         seeder.run(new DefaultApplicationArguments());
         long skillsAfterFirst = skillRepository.count();
         long tasksAfterFirst = taskRepository.count();
-        seeder.run(new DefaultApplicationArguments());
+        seeder.run(new DefaultApplicationArguments()); // повторний виклик
 
         assertThat(skillRepository.count()).isEqualTo(skillsAfterFirst).isEqualTo(12);
         assertThat(taskRepository.count()).isEqualTo(tasksAfterFirst).isEqualTo(15);
@@ -71,6 +71,7 @@ class MvcAndSeederIntegrationTest {
         UserAccount vol = userRepository.findByEmailIgnoreCase("vol.ivanenko@volunthub.op.edu.ua").orElseThrow();
         UserAccount coord = userRepository.findByEmailIgnoreCase("coord.odesa@volunthub.op.edu.ua").orElseThrow();
 
+        // Фільтрація каталогу за містом, форматом і порожня вибірка
         mockMvc.perform(get("/tasks")
                         .param("query", "WCAG")
                         .param("city", "Одеса")
@@ -81,6 +82,7 @@ class MvcAndSeederIntegrationTest {
         mockMvc.perform(get("/tasks").param("query", "НеіснуючийЗапит99999"))
                 .andExpect(status().isOk());
 
+        // Вхід у кабінет волонтера, додавання навички, подання заявки та звіту через MVC-форми з CSRF
         PlatformUserDetails volPrincipal = new PlatformUserDetails(vol);
         PlatformUserDetails coordPrincipal = new PlatformUserDetails(coord);
 
@@ -98,6 +100,7 @@ class MvcAndSeederIntegrationTest {
                         .param("notes", "Перевірено інтеграційним тестом"))
                 .andExpect(status().is3xxRedirection());
 
+        // Панель координатора: створення ініціативи та нового завдання з CSRF
         mockMvc.perform(get("/coordinator/dashboard").with(user(coordPrincipal)))
                 .andExpect(status().isOk());
 
@@ -127,6 +130,7 @@ class MvcAndSeederIntegrationTest {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/coordinator/dashboard"));
 
+        // Реєстрація нового волонтера з валідним NIST-паролем
         mockMvc.perform(post("/register").with(csrf())
                         .param("email", "fresh.vol@volunthub.op.edu.ua")
                         .param("password", "FreshVolunteer#2026!Pass")
