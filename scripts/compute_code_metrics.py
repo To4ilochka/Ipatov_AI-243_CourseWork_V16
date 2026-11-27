@@ -25,7 +25,7 @@ def analyze_java_files():
     code_lines = 0
     comment_lines = 0
     class_locs: list[tuple[str, int]] = []
-    method_locs: list[tuple[str, int, int]] = []
+    method_locs: list[tuple[str, int, int]] = []  # (qualified_name, loc, cc)
     parent_map: dict[str, str] = {}
 
     for path in java_files:
@@ -63,6 +63,7 @@ def analyze_java_files():
         for m in EXTENDS_RE.finditer(full_text):
             parent_map[m.group(1)] = m.group(2).split(".")[-1]
 
+        # Оцінка розміру та цикломатичної складності методів за балансом дужок
         i = 0
         while i < len(lines):
             m = METHOD_SIG_RE.match(lines[i])
@@ -89,7 +90,7 @@ def analyze_java_files():
             return 1
         seen.add(cls)
         if cls not in parent_map:
-            return 1
+            return 1  # java.lang.Object -> конкретний клас
         parent = parent_map[cls]
         if parent in {"OncePerRequestFilter", "RuntimeException"}:
             return 2
