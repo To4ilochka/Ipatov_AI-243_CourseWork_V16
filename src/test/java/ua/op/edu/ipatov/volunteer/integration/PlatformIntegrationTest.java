@@ -113,16 +113,19 @@ class PlatformIntegrationTest {
     @Test
     @DisplayName("Наскрізний позитивний сценарій: рекомендація -> заявка -> погодження -> контакти -> звіт -> верифікація")
     void endToEndVolunteerAndCoordinatorFlowSucceeds() throws Exception {
+        // 1. Публічний каталог не містить телефонів учасників і повертає HTTP 200
         mockMvc.perform(get("/api/public/tasks").param("city", "Одеса").param("onlyOpen", "true"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.content.length()").value(1))
                 .andExpect(jsonPath("$.content[0].title").value("Завдання з одним місцем"));
 
+        // 2. Волонтер 1 отримує рекомендацію з поясненням 100/100
         mockMvc.perform(get("/api/volunteer/recommendations")
                         .with(httpBasic("v1@test.op.edu.ua", PASS)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].explanation.totalScore").value(100.0));
 
+        // 3. Волонтер 1 подає заявку
         String appJson = objectMapper.writeValueAsString(new SubmitApplicationRequest(
                 singleSeatTask.getId(), "Маю необхідний інвентар та підтверджену навичку екологічного моніторингу."));
         String createdBody = mockMvc.perform(post("/api/volunteer/applications")
@@ -134,6 +137,7 @@ class PlatformIntegrationTest {
                 .andReturn().getResponse().getContentAsString();
         Long appId = objectMapper.readTree(createdBody).get("id").asLong();
 
+        // 4. Повторне подання тієї самої заявки повертає 409 Conflict (без створення дубліката)
         mockMvc.perform(post("/api/volunteer/applications")
                         .with(httpBasic("v1@test.op.edu.ua", PASS))
                         .contentType(MediaType.APPLICATION_JSON)
@@ -141,6 +145,7 @@ class PlatformIntegrationTest {
                 .andExpect(status().isConflict())
                 .andExpect(jsonPath("$.code").value("DUPLICATE_ACTIVE_APPLICATION"));
 
+        // 5. Координатор 1 погоджує заявку та отримує доступ до контактів учасника
         mockMvc.perform(post("/api/coordinator/applications/{id}/approve", appId)
                         .with(httpBasic("c1@test.op.edu.ua", PASS))
                         .contentType(MediaType.APPLICATION_JSON)
@@ -154,6 +159,7 @@ class PlatformIntegrationTest {
                 .andExpect(jsonPath("$.phone").value("+380931112233"))
                 .andExpect(jsonPath("$.telegramHandle").value("@vol_one_secret"));
 
+        // 6. Волонтер 1 подає підсумковий звіт, а Координатор 1 його підтверджує
         String repBody = mockMvc.perform(post("/api/volunteer/reports")
                         .with(httpBasic("v1@test.op.edu.ua", PASS))
                         .contentType(MediaType.APPLICATION_JSON)
@@ -177,6 +183,7 @@ class PlatformIntegrationTest {
     @Test
     @DisplayName("Негативні перевірки безпеки й цілісності: завершене завдання (409), закриті контакти через API (401/403), чужий звіт (403), валідація (400)")
     void negativeSecurityAndValidationRulesEnforced() throws Exception {
+        // 1. Заявка на завершене завдання -> 409 Conflict
         mockMvc.perform(post("/api/volunteer/applications")
                         .with(httpBasic("v1@test.op.edu.ua", PASS))
                         .contentType(MediaType.APPLICATION_JSON)
@@ -185,6 +192,7 @@ class PlatformIntegrationTest {
                 .andExpect(status().isConflict())
                 .andExpect(jsonPath("$.code").value("TASK_CLOSED"));
 
+        // 2. Некоректні дані (занадто коротка мотивація) -> 400 Bad Request з fieldErrors
         mockMvc.perform(post("/api/volunteer/applications")
                         .with(httpBasic("v1@test.op.edu.ua", PASS))
                         .contentType(MediaType.APPLICATION_JSON)
@@ -194,6 +202,7 @@ class PlatformIntegrationTest {
                 .andExpect(jsonPath("$.code").value("VALIDATION_ERROR"))
                 .andExpect(jsonPath("$.fieldErrors.motivation").exists());
 
+        // Створюємо та погоджуємо заявку Волонтера 1 і його звіт
         ApplicationDto app = workflowService.submitApplication(vol1.getId(),
                 new SubmitApplicationRequest(singleSeatTask.getId(), "Достатня мотивація для створення тестової заявки."));
         workflowService.approveApplication(coord1.getId(), app.id(), "Ок");
@@ -201,6 +210,7 @@ class PlatformIntegrationTest {
                 new SubmitReportRequest(app.id(), "Початковий достовірний текст звіту першого волонтера.",
                         new BigDecimal("4.0"), "Показник 1"));
 
+        // 3. Спроба переглянути закриті контакти без входу (401), іншим волонтером (403) та чужим координатором (403)
         mockMvc.perform(get("/api/applications/{id}/contacts", app.id()))
                 .andExpect(status().isUnauthorized());
 
@@ -213,6 +223,7 @@ class PlatformIntegrationTest {
                         .with(httpBasic("c2@test.op.edu.ua", PASS)))
                 .andExpect(status().isForbidden());
 
+        // 4. Спроба Волонтера 2 змінити звіт Волонтера 1 підміною reportId -> 403 Forbidden
         mockMvc.perform(put("/api/volunteer/reports/{reportId}", rep.id())
                         .with(httpBasic("v2@test.op.edu.ua", PASS))
                         .contentType(MediaType.APPLICATION_JSON)
@@ -221,6 +232,7 @@ class PlatformIntegrationTest {
                                 new BigDecimal("1.0"), null))))
                 .andExpect(status().isForbidden());
 
+        // 5. Перевірка політики паролів NIST SP 800-63B-4 у формі реєстрації з CSRF (<15 символів -> 400)
         mockMvc.perform(post("/register")
                         .with(csrf())
                         .param("email", "newuser@test.op.edu.ua")

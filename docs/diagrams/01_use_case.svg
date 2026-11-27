@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="645.12pt" height="463.68pt" viewBox="0 0 645.12 463.68" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ 
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 463.68 
+L 645.12 463.68 
+L 645.12 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 160.0704 418.1184 
+L 497.5488 418.1184 
+L 497.5488 36.6912 
+L 160.0704 36.6912 
+z
+" clip-path="url(#p92fd0f8ec4)" style="fill: #fafdfc; stroke: #0f172a; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 92.57472 94.3488 
+L 194.4432 94.3488 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #1d4ed8; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 92.57472 105.4368 
+L 131.9472 105.4368 
+L 131.9472 143.136 
+L 194.4432 143.136 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #1d4ed8; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 92.57472 227.4048 
+L 138.1968 227.4048 
+L 138.1968 191.9232 
+L 194.4432 191.9232 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #0f766e; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 92.57472 240.7104 
+L 194.4432 240.7104 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #0f766e; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 92.57472 254.016 
+L 138.1968 254.016 
+L 138.1968 289.4976 
+L 194.4432 289.4976 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #0f766e; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_6">
+    <path d="M 552.54528 262.8864 
+L 510.048 262.8864 
+L 510.048 338.2848 
+L 463.176 338.2848 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #b45309; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_7">
+    <path d="M 552.54528 276.192 
+L 525.672 276.192 
+L 525.672 387.072 
+L 463.176 387.072 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #b45309; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_8">
+    <path d="M 72.576 208.77696 
+L 72.576 141.80544 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_9">
+    <path d="M 572.544 230.95296 
+L 572.544 22.49856 
+L 72.576 22.49856 
+L 72.576 61.52832 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #0f172a" x="328.8096" y="52.145072" transform="rotate(-0 328.8096 52.145072)">Платформа волонтерських ініціатив VoluntHub</text>
+   </g>
+   <g id="patch_3">
+    <path d="M 328.8096 112.53312 
+C 364.443986 112.53312 398.623677 110.617105 423.820993 107.207056 
+C 449.018308 103.797007 463.176 99.171338 463.176 94.3488 
+C 463.176 89.526262 449.018308 84.900593 423.820993 81.490544 
+C 398.623677 78.080495 364.443986 76.16448 328.8096 76.16448 
+C 293.175214 76.16448 258.995523 78.080495 233.798207 81.490544 
+C 208.600892 84.900593 194.4432 89.526262 194.4432 94.3488 
+C 194.4432 99.171338 208.600892 103.797007 233.798207 107.207056 
+C 258.995523 110.617105 293.175214 112.53312 328.8096 112.53312 
+z
+" clip-path="url(#p92fd0f8ec4)" style="fill: #eff6ff; stroke: #1d4ed8; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 328.8096 161.32032 
+C 364.443986 161.32032 398.623677 159.404305 423.820993 155.994256 
+C 449.018308 152.584207 463.176 147.958538 463.176 143.136 
+C 463.176 138.313462 449.018308 133.687793 423.820993 130.277744 
+C 398.623677 126.867695 364.443986 124.95168 328.8096 124.95168 
+C 293.175214 124.95168 258.995523 126.867695 233.798207 130.277744 
+C 208.600892 133.687793 194.4432 138.313462 194.4432 143.136 
+C 194.4432 147.958538 208.600892 152.584207 233.798207 155.994256 
+C 258.995523 159.404305 293.175214 161.32032 328.8096 161.32032 
+z
+" clip-path="url(#p92fd0f8ec4)" style="fill: #eff6ff; stroke: #1d4ed8; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 328.8096 210.10752 
+C 364.443986 210.10752 398.623677 208.191505 423.820993 204.781456 
+C 449.018308 201.371407 463.176 196.745738 463.176 191.9232 
+C 463.176 187.100662 449.018308 182.474993 423.820993 179.064944 
+C 398.623677 175.654895 364.443986 173.73888 328.8096 173.73888 
+C 293.175214 173.73888 258.995523 175.654895 233.798207 179.064944 
+C 208.600892 182.474993 194.4432 187.100662 194.4432 191.9232 
+C 194.4432 196.745738 208.600892 201.371407 233.798207 204.781456 
+C 258.995523 208.191505 293.175214 210.10752 328.8096 210.10752 
+z
+" clip-path="url(#p92fd0f8ec4)" style="fill: #f0fdfa; stroke: #0f766e; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 328.8096 258.89472 
+C 364.443986 258.89472 398.623677 256.978705 423.820993 253.568656 
+C 449.018308 250.158607 463.176 245.532938 463.176 240.7104 
+C 463.176 235.887862 449.018308 231.262193 423.820993 227.852144 
+C 398.623677 224.442095 364.443986 222.52608 328.8096 222.52608 
+C 293.175214 222.52608 258.995523 224.442095 233.798207 227.852144 
+C 208.600892 231.262193 194.4432 235.887862 194.4432 240.7104 
+C 194.4432 245.532938 208.600892 250.158607 233.798207 253.568656 
+C 258.995523 256.978705 293.175214 258.89472 328.8096 258.89472 
+z
+" clip-path="url(#p92fd0f8ec4)" style="fill: #f0fdfa; stroke: #0f766e; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 328.8096 307.68192 
+C 364.443986 307.68192 398.623677 305.765905 423.820993 302.355856 
+C 449.018308 298.945807 463.176 294.320138 463.176 289.4976 
+C 463.176 284.675062 449.018308 280.049393 423.820993 276.639344 
+C 398.623677 273.229295 364.443986 271.31328 328.8096 271.31328 
+C 293.175214 271.31328 258.995523 273.229295 233.798207 276.639344 
+C 208.600892 280.049393 194.4432 284.675062 194.4432 289.4976 
+C 194.4432 294.320138 208.600892 298.945807 233.798207 302.355856 
+C 258.995523 305.765905 293.175214 307.68192 328.8096 307.68192 
+z
+" clip-path="url(#p92fd0f8ec4)" style="fill: #f0fdfa; stroke: #0f766e; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 328.8096 356.46912 
+C 364.443986 356.46912 398.623677 354.553105 423.820993 351.143056 
+C 449.018308 347.733007 463.176 343.107338 463.176 338.2848 
+C 463.176 333.462262 449.018308 328.836593 423.820993 325.426544 
+C 398.623677 322.016495 364.443986 320.10048 328.8096 320.10048 
+C 293.175214 320.10048 258.995523 322.016495 233.798207 325.426544 
+C 208.600892 328.836593 194.4432 333.462262 194.4432 338.2848 
+C 194.4432 343.107338 208.600892 347.733007 233.798207 351.143056 
+C 258.995523 354.553105 293.175214 356.46912 328.8096 356.46912 
+z
+" clip-path="url(#p92fd0f8ec4)" style="fill: #fffbeb; stroke: #b45309; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 328.8096 405.25632 
+C 364.443986 405.25632 398.623677 403.340305 423.820993 399.930256 
+C 449.018308 396.520207 463.176 391.894538 463.176 387.072 
+C 463.176 382.249462 449.018308 377.623793 423.820993 374.213744 
+C 398.623677 370.803695 364.443986 368.88768 328.8096 368.88768 
+C 293.175214 368.88768 258.995523 370.803695 233.798207 374.213744 
+C 208.600892 377.623793 194.4432 382.249462 194.4432 387.072 
+C 194.4432 391.894538 208.600892 396.520207 233.798207 399.930256 
+C 258.995523 403.340305 293.175214 405.25632 328.8096 405.25632 
+z
+" clip-path="url(#p92fd0f8ec4)" style="fill: #fffbeb; stroke: #b45309; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #475569" x="328.8096" y="440.367081" transform="rotate(-0 328.8096 440.367081)">Примітка: лінії позначають асоціації ролей із прецедентами; порожнистий трикутник — UML-узагальнення ролі «Гість».</text>
+   </g>
+   <g id="patch_10">
+    <path d="M 72.576 86.14368 
+C 74.979249 86.14368 77.284391 85.466065 78.983745 84.260072 
+C 80.683099 83.054079 81.63792 81.418172 81.63792 79.71264 
+C 81.63792 78.007108 80.683099 76.371201 78.983745 75.165208 
+C 77.284391 73.959215 74.979249 73.2816 72.576 73.2816 
+C 70.172751 73.2816 67.867609 73.959215 66.168255 75.165208 
+C 64.468901 76.371201 63.51408 78.007108 63.51408 79.71264 
+C 63.51408 81.418172 64.468901 83.054079 66.168255 84.260072 
+C 67.867609 85.466065 70.172751 86.14368 72.576 86.14368 
+z
+" clip-path="url(#p92fd0f8ec4)" style="fill: #ffffff; stroke: #0f172a; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_10">
+    <path d="M 72.576 86.14368 
+L 72.576 101.44512 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #0f172a; stroke-width: 1.5; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_11">
+    <path d="M 59.45184 90.80064 
+L 85.70016 90.80064 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #0f172a; stroke-width: 1.5; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_12">
+    <path d="M 72.576 101.44512 
+L 61.32672 113.42016 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #0f172a; stroke-width: 1.5; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_13">
+    <path d="M 72.576 101.44512 
+L 83.82528 113.42016 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #0f172a; stroke-width: 1.5; stroke-linecap: square"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 72.576 223.63488 
+C 74.979249 223.63488 77.284391 222.957265 78.983745 221.751272 
+C 80.683099 220.545279 81.63792 218.909372 81.63792 217.20384 
+C 81.63792 215.498308 80.683099 213.862401 78.983745 212.656408 
+C 77.284391 211.450415 74.979249 210.7728 72.576 210.7728 
+C 70.172751 210.7728 67.867609 211.450415 66.168255 212.656408 
+C 64.468901 213.862401 63.51408 215.498308 63.51408 217.20384 
+C 63.51408 218.909372 64.468901 220.545279 66.168255 221.751272 
+C 67.867609 222.957265 70.172751 223.63488 72.576 223.63488 
+z
+" clip-path="url(#p92fd0f8ec4)" style="fill: #ffffff; stroke: #0f172a; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_14">
+    <path d="M 72.576 223.63488 
+L 72.576 238.93632 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #0f172a; stroke-width: 1.5; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_15">
+    <path d="M 59.45184 228.29184 
+L 85.70016 228.29184 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #0f172a; stroke-width: 1.5; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_16">
+    <path d="M 72.576 238.93632 
+L 61.32672 250.91136 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #0f172a; stroke-width: 1.5; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_17">
+    <path d="M 72.576 238.93632 
+L 83.82528 250.91136 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #0f172a; stroke-width: 1.5; stroke-linecap: square"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 572.544 245.81088 
+C 574.947249 245.81088 577.252391 245.133265 578.951745 243.927272 
+C 580.651099 242.721279 581.60592 241.085372 581.60592 239.37984 
+C 581.60592 237.674308 580.651099 236.038401 578.951745 234.832408 
+C 577.252391 233.626415 574.947249 232.9488 572.544 232.9488 
+C 570.140751 232.9488 567.835609 233.626415 566.136255 234.832408 
+C 564.436901 236.038401 563.48208 237.674308 563.48208 239.37984 
+C 563.48208 241.085372 564.436901 242.721279 566.136255 243.927272 
+C 567.835609 245.133265 570.140751 245.81088 572.544 245.81088 
+z
+" clip-path="url(#p92fd0f8ec4)" style="fill: #ffffff; stroke: #0f172a; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_18">
+    <path d="M 572.544 245.81088 
+L 572.544 261.11232 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #0f172a; stroke-width: 1.5; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_19">
+    <path d="M 559.41984 250.46784 
+L 585.66816 250.46784 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #0f172a; stroke-width: 1.5; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_20">
+    <path d="M 572.544 261.11232 
+L 561.29472 273.08736 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #0f172a; stroke-width: 1.5; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_21">
+    <path d="M 572.544 261.11232 
+L 583.79328 273.08736 
+" clip-path="url(#p92fd0f8ec4)" style="fill: none; stroke: #0f172a; stroke-width: 1.5; stroke-linecap: square"/>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(240.775795 91.878408)">UC-01 Переглянути та відфільтрувати</text>
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(264.264436 101.620505)">каталог завдань і пагінацію</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(249.650475 140.650791)">UC-02 Зареєструватися або увійти</text>
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(279.963858 150.570694)">до облікового запису</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(249.784373 189.526894)">UC-03 Отримати підбір завдань за</text>
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(254.727741 199.268991)">навичками з поясненням оцінки</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(252.974147 238.151105)">UC-04 Оновити профіль навичок,</text>
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(261.508983 248.071008)">подати або скасувати заявку</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(256.935366 287.027208)">UC-05 Подати підсумковий звіт</text>
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(271.763428 296.769305)">про виконання завдання</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(237.286959 335.814408)">UC-06 Керувати власними ініціативами,</text>
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(262.013311 345.556505)">завданнями й лімітами місць</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(249.031959 384.601608)">UC-07 Погодити/відхилити заявки,</text>
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(232.300772 394.343705)">переглянути контакти й підтвердити звіт</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #0f172a" x="72.576" y="129.065556" transform="rotate(-0 72.576 129.065556)">Гість</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #0f172a" x="72.576" y="266.556756" transform="rotate(-0 72.576 266.556756)">Волонтер</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #0f172a" x="572.544" y="288.732756" transform="rotate(-0 572.544 288.732756)">Координатор</text>
+   </g>
+   <g id="patch_13">
+    <path d="M 72.576 132.048 
+L 64.764 141.80544 
+L 80.388 141.80544 
+z
+" clip-path="url(#p92fd0f8ec4)" style="fill: #ffffff; stroke: #0f172a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 72.576 71.28576 
+L 80.388 61.52832 
+L 64.764 61.52832 
+z
+" clip-path="url(#p92fd0f8ec4)" style="fill: #ffffff; stroke: #0f172a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p92fd0f8ec4">
+   <rect x="10.08" y="10.08" width="624.96" height="443.52"/>
+  </clipPath>
+ </defs>
+</svg>

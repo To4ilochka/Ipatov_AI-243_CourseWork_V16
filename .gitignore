@@ -41,3 +41,8 @@ __pycache__/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# Explanatory note deliverables and raster renders (SVG vector sources are tracked)
+Пояснювальна_записка_*.docx
+Пояснювальна_записка_*.pdf
+docs/**/*.png

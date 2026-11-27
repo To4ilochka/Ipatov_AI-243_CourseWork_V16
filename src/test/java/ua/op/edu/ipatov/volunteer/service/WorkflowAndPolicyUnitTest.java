@@ -15,6 +15,7 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -88,6 +89,7 @@ class WorkflowAndPolicyUnitTest {
         assertThatThrownBy(() -> visibilityPolicy.requireAuthorizedContacts(volB, app))
                 .isInstanceOf(AccessPolicyViolationException.class);
 
+        // Після скасування заявки навіть координатор бачить масковані контакти у загальному списку
         app.cancelByVolunteer(Instant.now());
         ParticipantContactDto masked = visibilityPolicy.buildContactDto(ownerCoord, app);
         assertThat(masked.contactsAuthorized()).isFalse();
@@ -153,10 +155,12 @@ class WorkflowAndPolicyUnitTest {
 
         when(reportRepository.findDetailedById(601L)).thenReturn(Optional.of(report));
 
+        // Волонтер B намагається змінити звіт волонтера A
         assertThatThrownBy(() -> workflowService.updateExistingReportById(11L, 601L,
                 new SubmitReportRequest(501L, "Спроба підмінити чужий текст звіту!", new BigDecimal("1.0"), null)))
                 .isInstanceOf(AccessPolicyViolationException.class);
 
+        // Координатор підтверджує звіт, після чого навіть автор не може його перезаписати
         report.verify("Прийнято", Instant.now());
         assertThatThrownBy(() -> workflowService.updateExistingReportById(10L, 601L,
                 new SubmitReportRequest(501L, "Спроба змінити вже верифікований звіт.", new BigDecimal("5.0"), null)))

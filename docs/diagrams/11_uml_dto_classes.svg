@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="656.28pt" height="419.328pt" viewBox="0 0 656.28 419.328" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ 
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 419.328 
+L 656.28 419.328 
+L 656.28 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 422.043429 117.85536 
+Q 434.16 117.85536 444.823127 117.85536 
+" style="fill: none; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+    <path d="M 440.023127 115.45536 
+L 444.823127 117.85536 
+L 440.023127 120.25536 
+z
+" style="fill: #0f172a; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 228.178286 293.48928 
+Q 240.294857 293.48928 250.957984 293.48928 
+" style="fill: none; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+    <path d="M 246.157984 291.08928 
+L 250.957984 293.48928 
+L 246.157984 295.88928 
+z
+" style="fill: #0f172a; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 40.371429 185.71392 
+L 216.061714 185.71392 
+L 216.061714 49.9968 
+L 40.371429 49.9968 
+z
+" clip-path="url(#pfad3968b8d)" style="fill: #ffffff; stroke: #0f172a; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 240.294857 185.71392 
+L 422.043429 185.71392 
+L 422.043429 49.9968 
+L 240.294857 49.9968 
+z
+" clip-path="url(#pfad3968b8d)" style="fill: #ffffff; stroke: #0f172a; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 446.276571 185.71392 
+L 621.966857 185.71392 
+L 621.966857 49.9968 
+L 446.276571 49.9968 
+z
+" clip-path="url(#pfad3968b8d)" style="fill: #ffffff; stroke: #0f172a; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 40.371429 361.34784 
+L 228.178286 361.34784 
+L 228.178286 225.63072 
+L 40.371429 225.63072 
+z
+" clip-path="url(#pfad3968b8d)" style="fill: #ffffff; stroke: #0f172a; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 252.411429 361.34784 
+L 452.334857 361.34784 
+L 452.334857 225.63072 
+L 252.411429 225.63072 
+z
+" clip-path="url(#pfad3968b8d)" style="fill: #ffffff; stroke: #0f172a; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 470.509714 361.34784 
+L 621.966857 361.34784 
+L 621.966857 225.63072 
+L 470.509714 225.63072 
+z
+" clip-path="url(#pfad3968b8d)" style="fill: #ffffff; stroke: #b91c1c; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 40.371429 77.140224 
+L 216.061714 77.140224 
+L 216.061714 49.9968 
+L 40.371429 49.9968 
+z
+" clip-path="url(#pfad3968b8d)" style="fill: #eff6ff; stroke: #0f172a; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 240.294857 77.140224 
+L 422.043429 77.140224 
+L 422.043429 49.9968 
+L 240.294857 49.9968 
+z
+" clip-path="url(#pfad3968b8d)" style="fill: #f0fdfa; stroke: #0f172a; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 446.276571 77.140224 
+L 621.966857 77.140224 
+L 621.966857 49.9968 
+L 446.276571 49.9968 
+z
+" clip-path="url(#pfad3968b8d)" style="fill: #fffbeb; stroke: #0f172a; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 40.371429 252.774144 
+L 228.178286 252.774144 
+L 228.178286 225.63072 
+L 40.371429 225.63072 
+z
+" clip-path="url(#pfad3968b8d)" style="fill: #f0fdfa; stroke: #0f172a; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 252.411429 252.774144 
+L 452.334857 252.774144 
+L 452.334857 225.63072 
+L 252.411429 225.63072 
+z
+" clip-path="url(#pfad3968b8d)" style="fill: #f0fdfa; stroke: #0f172a; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 470.509714 252.774144 
+L 621.966857 252.774144 
+L 621.966857 225.63072 
+L 470.509714 225.63072 
+z
+" clip-path="url(#pfad3968b8d)" style="fill: #fef2f2; stroke: #b91c1c; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-style: italic; font-size: 7.7px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #475569" x="128.216571" y="60.504047" transform="rotate(-0 128.216571 60.504047)">«DTO»</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 8.7px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #0f172a" x="128.216571" y="71.55752" transform="rotate(-0 128.216571 71.55752)">SubmitApplicationRequest</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(47.035543 88.408158)">+ taskId: Long (@NotNull)</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(47.035543 97.852708)">+ motivation: String (15..800)</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(47.035543 107.297258)">---</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(47.035543 116.741808)">Примітка: volunteerId відсутній</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(47.035543 126.360758)">у запиті (береться із сесії)</text>
+   </g>
+   <g id="text_4">
+    <text style="font-style: italic; font-size: 7.7px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #475569" x="331.169143" y="60.504047" transform="rotate(-0 331.169143 60.504047)">«DTO»</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 8.7px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #0f172a" x="331.169143" y="71.55752" transform="rotate(-0 331.169143 71.55752)">ApplicationDto</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(246.958971 88.408158)">+ id, taskId: Long</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(246.958971 97.852708)">+ taskTitle, initiativeTitle: String</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(246.958971 107.297258)">+ matchScore: BigDecimal</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(246.958971 116.741808)">+ status: ApplicationStatus</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(246.958971 126.186358)">+ contact: ParticipantContactDto</text>
+   </g>
+   <g id="text_7">
+    <text style="font-style: italic; font-size: 7.7px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #475569" x="534.121714" y="60.504047" transform="rotate(-0 534.121714 60.504047)">«DTO»</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 8.7px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #0f172a" x="534.121714" y="71.55752" transform="rotate(-0 534.121714 71.55752)">ParticipantContactDto</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(452.940686 88.408158)">+ volunteerId: Long</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(452.940686 97.852708)">+ fullName, city: String</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(452.940686 107.297258)">+ contactsAuthorized: boolean</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(452.940686 116.741808)">+ email: String? (масковано)</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(452.940686 126.186358)">+ phone, telegramHandle: String?</text>
+   </g>
+   <g id="text_10">
+    <text style="font-style: italic; font-size: 7.7px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #475569" x="134.274857" y="236.137967" transform="rotate(-0 134.274857 236.137967)">«DTO»</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 8.7px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #0f172a" x="134.274857" y="247.19144" transform="rotate(-0 134.274857 247.19144)">RecommendedTaskDto</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(47.035543 264.042078)">+ task: TaskCardDto</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(47.035543 273.486628)">+ explanation:</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(47.035543 282.931178)">    RecommendationExplanationDto</text>
+   </g>
+   <g id="text_13">
+    <text style="font-style: italic; font-size: 7.7px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #475569" x="352.373143" y="236.137967" transform="rotate(-0 352.373143 236.137967)">«DTO»</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 8.7px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #0f172a" x="352.373143" y="247.19144" transform="rotate(-0 352.373143 247.19144)">RecommendationExplanationDto</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(259.075543 264.042078)">+ totalScore: double [0..100]</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(259.075543 273.486628)">+ skillComponentPoints: double</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(259.075543 282.931178)">+ locationComponentPoints: double</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(259.075543 292.375728)">+ missingMandatorySkill: boolean</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(259.075543 301.820278)">+ matchedSkills: List&lt;String&gt;</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(259.075543 311.264828)">+ summaryText: String</text>
+   </g>
+   <g id="text_16">
+    <text style="font-style: italic; font-size: 7.7px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #475569" x="546.238286" y="236.137967" transform="rotate(-0 546.238286 236.137967)">«DTO»</text>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 8.7px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #0f172a" x="546.238286" y="247.19144" transform="rotate(-0 546.238286 247.19144)">ProblemDetail (RFC 9457)</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(477.173829 264.042078)">+ type: URI</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(477.173829 273.486628)">+ title: String</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(477.173829 282.931178)">+ status: int (400/403/409)</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(477.173829 292.375728)">+ detail, code: String</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(477.173829 301.820278)">+ fieldErrors: Map&lt;String,String&gt;</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(477.173829 311.264828)">+ requestId: String</text>
+   </g>
+   <g id="text_19">
+    <g id="patch_16">
+     <path d="M 431.583188 115.249641 
+L 436.736812 115.249641 
+Q 438.194813 115.249641 438.194813 113.791641 
+L 438.194813 105.952359 
+Q 438.194813 104.494359 436.736812 104.494359 
+L 431.583188 104.494359 
+Q 430.125187 104.494359 430.125187 105.952359 
+L 430.125187 113.791641 
+Q 430.125187 115.249641 431.583188 115.249641 
+z
+" style="fill: #ffffff; opacity: 0.98"/>
+    </g>
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #0f172a" x="434.16" y="112.107094" transform="rotate(-0 434.16 112.107094)">1</text>
+   </g>
+   <g id="text_20">
+    <g id="patch_17">
+     <path d="M 237.718045 290.883561 
+L 242.87167 290.883561 
+Q 244.32967 290.883561 244.32967 289.425561 
+L 244.32967 281.586279 
+Q 244.32967 280.128279 242.87167 280.128279 
+L 237.718045 280.128279 
+Q 236.260045 280.128279 236.260045 281.586279 
+L 236.260045 289.425561 
+Q 236.260045 290.883561 237.718045 290.883561 
+z
+" style="fill: #ffffff; opacity: 0.98"/>
+    </g>
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #0f172a" x="240.294857" y="287.741014" transform="rotate(-0 240.294857 287.741014)">1</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pfad3968b8d">
+   <rect x="10.08" y="10.08" width="636.12" height="399.168"/>
+  </clipPath>
+ </defs>
+</svg>
