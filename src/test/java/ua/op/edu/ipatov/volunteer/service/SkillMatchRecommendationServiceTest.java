@@ -101,6 +101,7 @@ class SkillMatchRecommendationServiceTest {
     void missingMandatorySkillAppliesPenaltyMultiplier() {
         UserAccount vol = new UserAccount("v@test.ua", "hash", "Волонтер", UserRole.VOLUNTEER,
                 "Одеса", "+380931112233", null, null);
+        // Не має skillWcag, але має необов'язкову skillPython
         vol.getSkills().add(new VolunteerSkill(vol, skillPython, (short) 2, null));
 
         VolunteerTask task = new VolunteerTask(odesaInitiative, "Аудит порталу", "Опис робіт достатньої довжини",
@@ -131,9 +132,9 @@ class SkillMatchRecommendationServiceTest {
         RecommendationExplanationDto res = service.evaluateTaskForVolunteer(vol, task);
 
         assertThat(res.missingMandatorySkill()).isFalse();
-        assertThat(res.skillComponentPoints()).isBetween(23.0, 24.0);
-        assertThat(res.locationComponentPoints()).isEqualTo(7.0);
-        assertThat(res.urgencyComponentPoints()).isEqualTo(4.0);
+        assertThat(res.skillComponentPoints()).isBetween(23.0, 24.0); // 70 * (1/3) = 23.33
+        assertThat(res.locationComponentPoints()).isEqualTo(7.0);     // 20 * 0.35 = 7.0
+        assertThat(res.urgencyComponentPoints()).isEqualTo(4.0);      // 10 * 0.40 = 4.0
         assertThat(res.missingOrInsufficientSkills()).anyMatch(s -> s.contains("частково"));
     }
 
