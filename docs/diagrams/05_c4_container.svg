@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="667.44pt" height="452.592pt" viewBox="0 0 667.44 452.592" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ 
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 452.592 
+L 667.44 452.592 
+L 667.44 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 61.8624 394.94448 
+L 605.5776 394.94448 
+L 605.5776 196.02576 
+L 61.8624 196.02576 
+z
+" clip-path="url(#pbaf948915b)" style="fill: #f8fffe; stroke-dasharray: 5.92,2.56; stroke-dashoffset: 0; stroke: #0f766e; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 126.5904 87.91776 
+L 126.5904 137.64744 
+" clip-path="url(#pbaf948915b)" style="fill: none; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 540.8496 87.91776 
+L 540.8496 137.64744 
+" clip-path="url(#pbaf948915b)" style="fill: none; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 126.5904 137.64744 
+Q 158.9544 137.64744 189.864956 137.64744 
+" style="fill: none; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+    <path d="M 185.064956 135.24744 
+L 189.864956 137.64744 
+L 185.064956 140.04744 
+z
+" style="fill: #0f172a; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 540.8496 137.64744 
+Q 508.4856 137.64744 477.575044 137.64744 
+" style="fill: none; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+    <path d="M 482.375044 140.04744 
+L 477.575044 137.64744 
+L 482.375044 135.24744 
+z
+" style="fill: #0f172a; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 197.7912 161.4312 
+Q 197.7912 196.02576 197.7912 229.166876 
+" style="fill: none; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+    <path d="M 200.1912 224.366876 
+L 197.7912 229.166876 
+L 195.3912 224.366876 
+z
+" style="fill: #0f172a; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 307.8288 265.21488 
+Q 353.1384 265.21488 396.994556 265.21488 
+" style="fill: none; stroke-dasharray: 4.81,2.08; stroke-dashoffset: 0; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+    <path d="M 392.194556 262.81488 
+L 396.994556 265.21488 
+L 392.194556 267.61488 
+z
+" style="fill: #0f172a; stroke-dasharray: 4.81,2.08; stroke-dashoffset: 0; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 197.7912 299.80944 
+Q 197.7912 316.02564 197.7912 330.788396 
+" style="fill: none; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+    <path d="M 200.1912 325.988396 
+L 197.7912 330.788396 
+L 195.3912 325.988396 
+z
+" style="fill: #0f172a; stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 48.9168 88.782624 
+L 204.264 88.782624 
+Q 212.03136 88.782624 212.03136 83.59344 
+L 212.03136 42.5124 
+Q 212.03136 37.323216 204.264 37.323216 
+L 48.9168 37.323216 
+Q 41.14944 37.323216 41.14944 42.5124 
+L 41.14944 83.59344 
+Q 41.14944 88.782624 48.9168 88.782624 
+z
+" clip-path="url(#pbaf948915b)" style="fill: #eff6ff; stroke: #1d4ed8; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 463.176 88.782624 
+L 618.5232 88.782624 
+Q 626.29056 88.782624 626.29056 83.59344 
+L 626.29056 42.5124 
+Q 626.29056 37.323216 618.5232 37.323216 
+L 463.176 37.323216 
+Q 455.40864 37.323216 455.40864 42.5124 
+L 455.40864 83.59344 
+Q 455.40864 88.782624 463.176 88.782624 
+z
+" clip-path="url(#pbaf948915b)" style="fill: #fffbeb; stroke: #b45309; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 197.7912 162.296064 
+L 469.6488 162.296064 
+Q 477.41616 162.296064 477.41616 157.10688 
+L 477.41616 118.188 
+Q 477.41616 112.998816 469.6488 112.998816 
+L 197.7912 112.998816 
+Q 190.02384 112.998816 190.02384 118.188 
+L 190.02384 157.10688 
+Q 190.02384 162.296064 197.7912 162.296064 
+z
+" clip-path="url(#pbaf948915b)" style="fill: #f8fafc; stroke: #0f172a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #0f766e" x="589.3956" y="209.717273" transform="rotate(-0 589.3956 209.717273)">Межа системи VoluntHub [System Boundary]</text>
+   </g>
+   <g id="patch_11">
+    <path d="M 94.2264 300.674304 
+L 301.356 300.674304 
+Q 309.12336 300.674304 309.12336 295.48512 
+L 309.12336 234.94464 
+Q 309.12336 229.755456 301.356 229.755456 
+L 94.2264 229.755456 
+Q 86.45904 229.755456 86.45904 234.94464 
+L 86.45904 295.48512 
+Q 86.45904 300.674304 94.2264 300.674304 
+z
+" clip-path="url(#pbaf948915b)" style="fill: #f0fdfa; stroke: #0f766e; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 404.9208 300.674304 
+L 573.2136 300.674304 
+Q 580.98096 300.674304 580.98096 295.48512 
+L 580.98096 234.94464 
+Q 580.98096 229.755456 573.2136 229.755456 
+L 404.9208 229.755456 
+Q 397.15344 229.755456 397.15344 234.94464 
+L 397.15344 295.48512 
+Q 397.15344 300.674304 404.9208 300.674304 
+z
+" clip-path="url(#pbaf948915b)" style="fill: #eff6ff; stroke: #1d4ed8; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 146.0088 382.836384 
+L 521.4312 382.836384 
+Q 529.19856 382.836384 529.19856 377.6472 
+L 529.19856 336.56616 
+Q 529.19856 331.376976 521.4312 331.376976 
+L 146.0088 331.376976 
+Q 138.24144 331.376976 138.24144 336.56616 
+L 138.24144 377.6472 
+Q 138.24144 382.836384 146.0088 382.836384 
+z
+" clip-path="url(#pbaf948915b)" style="fill: #fefce8; stroke: #b45309; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(90.828423 50.834321)">Волонтер / Гість</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(109.4094 60.506908)">[Person]</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(71.072478 70.179495)">Пошук завдань, навички,</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(76.333252 79.852081)">подання заявок і звітів</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(488.660756 50.834321)">Координатор ініціативи</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(523.6686 60.506908)">[Person]</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(488.350803 70.179495)">Керування завданнями,</text>
+    <text style="font-size: 8.3px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(484.598944 79.852081)">погодження, верифікація</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(278.025078 130.068428)">Веббраузер користувача</text>
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(250.753359 139.974089)">[Client Container: HTML5, CSS Grid, JS]</text>
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(237.571719 150.062155)">Адаптивні форми, валідація полів, таблиці</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(120.167255 248.639926)">Серверний вебзастосунок і REST API</text>
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(123.280692 258.079438)">[Container: Java 21, Spring Boot 3.4]</text>
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(116.372278 267.51895)">Контролери MVC/REST, Spring Security</text>
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(139.931255 276.958462)">(Argon2id), алгоритм S(v,t),</text>
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(122.741536 286.397975)">політика контактів, міграції Flyway</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(419.641341 253.290705)">Спостережуваність і телеметрія</text>
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(427.039552 262.730218)">[Component: Actuator + MDC]</text>
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(424.851919 272.16973)">Перевірки liveness / readiness,</text>
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(430.800989 281.609242)">метрики JVM/CPU, requestId</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 8.2px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(260.513219 349.681132)">Реляційна база даних платформи</text>
+    <text style="font-size: 8.2px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(244.562938 359.237181)">[Container: PostgreSQL 16-alpine у Docker]</text>
+    <text style="font-size: 8.2px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(164.348359 368.969197)">Таблиці сутностей, частковий індекс заявок, блокування рядків і audit_events</text>
+   </g>
+   <g id="text_8">
+    <g id="patch_14">
+     <path d="M 114.097134 134.012985 
+L 171.447666 134.012985 
+Q 172.905666 134.012985 172.905666 132.554985 
+L 172.905666 124.577751 
+Q 172.905666 123.119751 171.447666 123.119751 
+L 114.097134 123.119751 
+Q 112.639134 123.119751 112.639134 124.577751 
+L 112.639134 132.554985 
+Q 112.639134 134.012985 114.097134 134.012985 
+z
+" style="fill: #ffffff; opacity: 0.98"/>
+    </g>
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #0f172a" x="142.7724" y="130.870438" transform="rotate(-0 142.7724 130.870438)">Дії у браузері</text>
+   </g>
+   <g id="text_9">
+    <g id="patch_15">
+     <path d="M 501.731311 133.944009 
+L 547.603889 133.944009 
+Q 549.061889 133.944009 549.061889 132.486009 
+L 549.061889 124.646727 
+Q 549.061889 123.188727 547.603889 123.188727 
+L 501.731311 123.188727 
+Q 500.273311 123.188727 500.273311 124.646727 
+L 500.273311 132.486009 
+Q 500.273311 133.944009 501.731311 133.944009 
+z
+" style="fill: #ffffff; opacity: 0.98"/>
+    </g>
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #0f172a" x="524.6676" y="130.801462" transform="rotate(-0 524.6676 130.801462)">Керування</text>
+   </g>
+   <g id="text_10">
+    <g id="patch_16">
+     <path d="M 149.565192 193.830419 
+L 246.017208 193.830419 
+Q 247.475208 193.830419 247.475208 192.372419 
+L 247.475208 175.462909 
+Q 247.475208 174.004909 246.017208 174.004909 
+L 149.565192 174.004909 
+Q 148.107192 174.004909 148.107192 175.462909 
+L 148.107192 192.372419 
+Q 148.107192 193.830419 149.565192 193.830419 
+z
+" style="fill: #ffffff; opacity: 0.98"/>
+    </g>
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(160.168598 181.617644)">HTTP/HTTPS :8096</text>
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(149.565192 190.687872)">(HTML + Problem JSON)</text>
+   </g>
+   <g id="text_11">
+    <g id="patch_17">
+     <path d="M 334.511564 275.127635 
+L 371.765236 275.127635 
+Q 373.223236 275.127635 373.223236 273.669635 
+L 373.223236 256.760125 
+Q 373.223236 255.302125 371.765236 255.302125 
+L 334.511564 255.302125 
+Q 333.053564 255.302125 333.053564 256.760125 
+L 333.053564 273.669635 
+Q 333.053564 275.127635 334.511564 275.127635 
+z
+" style="fill: #ffffff; opacity: 0.98"/>
+    </g>
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(334.511564 262.91486)">Метрики</text>
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; fill: #0f172a" transform="translate(337.183298 271.985088)">та логи</text>
+   </g>
+   <g id="text_12">
+    <g id="patch_18">
+     <path d="M 154.057528 321.187065 
+L 241.524872 321.187065 
+Q 242.982872 321.187065 242.982872 319.729065 
+L 242.982872 311.889783 
+Q 242.982872 310.431783 241.524872 310.431783 
+L 154.057528 310.431783 
+Q 152.599528 310.431783 152.599528 311.889783 
+L 152.599528 319.729065 
+Q 152.599528 321.187065 154.057528 321.187065 
+z
+" style="fill: #ffffff; opacity: 0.98"/>
+    </g>
+    <text style="font-size: 8.1px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #0f172a" x="197.7912" y="318.044518" transform="rotate(-0 197.7912 318.044518)">JDBC / HikariCP :5446</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pbaf948915b">
+   <rect x="10.08" y="10.08" width="647.28" height="432.432"/>
+  </clipPath>
+ </defs>
+</svg>
